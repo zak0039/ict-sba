@@ -1,0 +1,134 @@
+/* 1. Global Page Settings */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6; /* Light gray background */
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 2. The White Card Container (Your Form) */
+form {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 650px;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* 3. Header Styling */
+header {
+    border-bottom: 1px solid #f0f0f2;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    
+}
+.card-title {
+    margin: 0 0 6px 0;
+    font-size: 30px;
+    color: #111827;
+    font-weight: 600;
+    left: 20px;
+}
+.card-description {
+    margin: 0;
+    font-size: 17px;
+    color: #9ca3af;
+}
+
+/* 4. Form Layout Grid (Puts inputs side-by-side) */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* 5. Input Fields & Labels */
+.input-group {
+    
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.input-group label, .section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+.input-group select, 
+.input-group input[type="datetime-local"],
+.input-group input[type="text"],
+.input-group input[type="number"],
+textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #d3dcee;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #374151;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+/* 6. Drag & Drop File Upload Area */
+.upload-container {
+    border: 2px dashed #e5e7eb;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    margin: 24px 0;
+    background-color: #fafafa;
+}
+.upload-container p {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* 7. Action Buttons Bar */
+.actions {
+    display: flex;
+    justify-content: space-between; /* Pushes Save as Draft to the left */
+    align-items: center;
+    margin-top: 24px;
+    border-top: 1px solid #f0f0f2;
+    padding-top: 20px;
+}
+.button-group {
+    display: flex;
+    gap: 12px; /* Spaces out Reset and Save Task */
+}
+
+/* Button Base Styles */
+button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.btn-secondary {
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    color: #374151;
+}
+.btn-outline {
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    color: #374151;
+}
+.btn-primary {
+    background-color: #111827; /* Dark black background */
+    border: 1px solid #111827;
+    color: #ffffff;
+}
+button:hover {
+    opacity: 0.7;
+}
