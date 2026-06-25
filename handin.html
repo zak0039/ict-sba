@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Task</title>
+    <link rel="stylesheet" href="handin.css">
+    
+
+
+</head>
+<body>
+
+    <header>
+        <h2 class="card-title">Assign Task</h2>
+        <br>
+       <p class="card-description">upload homework or notes to students</p>
+
+    </header>
+
+    <form>
+        <div class="input-group full-width">
+    <label for="task-title"style="font-size: 25px;">Task Title</label>
+    <input type="text" id="task-title" name="task-title" placeholder="enter your homework title here">
+</div>
+
+<div class="input-group full-width">
+    <label for="task-ds">Task Description</label>
+    <textarea id="task-ds" name="task-ds" placeholder="enter your homework description here"></textarea>
+</div>
+<br>
+        
+        <div class="input-group">
+            <label class="form-label" for="assign-to">Assign to which subject</label>
+            <select id="assign-to" name="assign-to">
+               
+                <option value="chinese">chinese</option>
+                <option value="english">English</option>
+                <option value="math">Math</option>
+                <option value="cs">cs</option>
+                <option value="physics">Physics</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="biology">Biology</option>
+                <option value="ICT">ICT</option>
+                <option value="m1">m1</option>
+                <option value="history">History</option>
+
+
+            </select>
+        </div> 
+        
+
+<br>
+
+        
+        <div class="grid-column">
+            <div class="input-group">
+    <label class="form-label" for="assign-to">Assign to Class</label>
+    <select id="assign-to" name="assign-to">
+        <option value="">Select Class...</option>
+        <!-- Junior Forms (No Electives) -->
+        <option value="s1a">S1A</option>
+        <option value="s1b">S1B</option>
+        <option value="s1c">S1C</option>
+        <option value="s1d">S1D</option>
+       <option value="s2a">S2A</option>
+        <option value="s2b">S2B</option>
+        <option value="s2c">S2C</option>
+        <option value="s2d">S2D</option>
+       <option value="s3a">S3A</option>
+        <option value="s3b">S3B</option>
+        <option value="s3c">S3C</option>
+        <option value="s3d">S3D</option>
+
+        
+        <option value="s4a">S4A</option>
+        <option value="s4b">S4B</option>
+        <option value="s4c">S4C</option>
+        <option value="s4d">S4D</option>
+        <option value="s5a">S5A</option>
+        <option value="s5b">S5B</option>
+        <option value="s5c">S5C</option>
+        <option value="s5d">S5D</option>
+        <option value="s6a">S6A</option>
+        <option value="s6b">S6B</option>
+        <option value="s6c">S6C</option>
+        <option value="s6d">S6D</option>
+    </select>
+</div>
+
+
+
+        </div>
+
+        <br>
+
+        
+        <div class="grid-column">
+            <h4 class="section-title">Elective Blocks</h4>
+            <label class="checkbox-label"><input type="checkbox" name="classes" value="elec-1"> X1</label>
+            <label class="checkbox-label"><input type="checkbox" name="classes" value="elec-2"> X2</label>
+            <label class="checkbox-label"><input type="checkbox" name="classes" value="elec-3"> X3</label>
+            
+        </div>
+<br>
+       
+        <div class="input-group">
+            <label for="due-date">Due Date</label>
+            <input type="datetime-local" id="due-date" name="due-date">
+        </div>
+        <br>
+        <div class="input-group">
+            <label for="hpoint">homework point</label>
+            <input type="number" id="hpoint" name="hpoint" min="0" max="20">
+        </div>
+      
+        
+        <div class="upload-container">
+            <p>Choose a file or drag & drop it here</p>
+            <input type="file" id="file-upload">
+        </div>
+      
+       
+        <div class="actions">
+            <button type="button" class="btn-secondary">Save as Draft</button>
+            <div class="button-group">
+                <button type="reset" class="btn-outline">Reset Data</button>
+                <button type="submit" class="btn-primary">upload</button>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

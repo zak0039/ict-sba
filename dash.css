@@ -1,0 +1,736 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --primary-navy: #1e2538;
+    --primary-hover: #2e3954;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --accent-purple: #6366f1;
+    --accent-green: #10b981;
+    --radius: 10px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    line-height: 1.5;
+    padding: 40px;
+}
+
+.dashboard-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- HEADER SECTION --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 32px;
+}
+
+.class-info h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-navy);
+}
+
+.class-info p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.class-info .code-badge {
+    background-color: #f1f5f9;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+/* --- NAVIGATION & ACTIONS --- */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.tabs {
+    display: flex;
+    gap: 24px;
+}
+
+.tab {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding-bottom: 8px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.tab.active {
+    color: var(--primary-navy);
+    border-bottom-color: var(--primary-navy);
+}
+
+.btn-primary {
+    background-color: var(--primary-navy);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+/* --- NEW COMPONENT: HORIZONTAL SUMMARY ROW --- */
+.summary-row {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+    align-items: stretch; /* Aligns both cards to have equal layout heights if content matches */
+}
+
+.summary-row .sidebar {
+    flex: 0 0 320px; /* Keeps the progress card exactly matching the column width below */
+}
+
+/* --- MAIN LAYOUT GRID --- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Shifts main contents below to use maximum available space */
+    gap: 32px;
+}
+
+/* --- SIDEBAR & CHARTS --- */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--primary-navy);
+}
+
+.chart-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.circle-chart {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: conic-gradient(var(--accent-purple) 70%, var(--border-color) 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.circle-chart::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: var(--card-bg);
+    border-radius: 50%;
+}
+
+.chart-inner-text {
+    position: relative;
+    z-index: 1;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-navy);
+    text-align: center;
+}
+
+.chart-inner-text span {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.chart-legend {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    gap: 12px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.legend-color {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent-purple);
+}
+
+/* --- MAIN CONTENT AREA --- */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.assignment-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.column-heading {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.assignment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.assignment-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.assignment-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.assignment-details h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--primary-navy);
+    margin-bottom: 6px;
+}
+
+.assignment-meta {
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex;
+    gap: 16px;
+}
+
+.meta-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dot-menu {
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 4px;
+    font-weight: bold;
+}
+
+/* --- CALENDAR --- */
+/* --- CALENDAR --- */
+.calendar-card {
+    padding: 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-navy);
+}
+
+/* Container locking positions */
+.calendar-container-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Core grid structural settings shared by layer 1 and layer 2 */
+.calendar-grid, 
+.calendar-events-overlay {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* Row 1 is exactly 42px (Labels), following calendar week rows are exactly 100px */
+    grid-template-rows: 42px repeat(2, 100px); 
+    gap: 1px;
+}
+
+.calendar-grid {
+    background-color: var(--border-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.calendar-day-label {
+    background-color: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.calendar-cell {
+    background-color: var(--card-bg);
+    padding: 10px;
+}
+
+.day-number {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.calendar-cell.day-inactive {
+    background-color: #fafafa;
+}
+.calendar-cell.day-inactive .day-number {
+    color: #cbd5e1;
+}
+
+.calendar-cell.day-today .day-number {
+    color: var(--accent-purple);
+    background: #e0e7ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Transparent Overlay for tracking bars */
+.calendar-events-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid transparent; /* matches alignment spacing perfectly */
+    pointer-events: none; 
+}
+
+/* Floating Bar designs */
+.calendar-bar {
+    pointer-events: auto;
+    z-index: 5;
+    align-self: end; /* anchors bars perfectly along the bottom lip of the week block */
+    margin-bottom: 8px;
+    margin-left: 6px;
+    margin-right: 6px;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-bar.is-due {
+    border-right: 4px solid currentColor; 
+}
+
+/* Theme accent modifications */
+.event-purple { background-color: #e0e7ff; color: #4338ca; border-left: 4px solid #4338ca; }
+.event-green { background-color: #d1fae5; color: #065f46; border-left: 4px solid #065f46; }
+.event-orange { background-color: #ffedd5; color: #9a3412; border-left: 4px solid #9a3412; }
+
+/* Transparent Overlay Grid Layer containing only bars */
+.calendar-events-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 100px;
+    gap: 1px;
+    pointer-events: none; /* Allows hover/clicks to pass straight through to dates below */
+}
+
+/* Visual bars */
+.calendar-bar {
+    pointer-events: auto; /* Re-enables clicking on the bar itself if needed later */
+    z-index: 5;
+    align-self: end; /* Snaps the bar cleanly to the bottom area of the row */
+    margin-bottom: 8px;
+    margin-left: 6px;
+    margin-right: 6px;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.calendar-bar.is-due {
+    border-right: 4px solid currentColor; 
+}
+
+/* Color codes */
+.event-purple { background-color: #e0e7ff; color: #4338ca; border-left: 4px solid #4338ca; }
+.event-green { background-color: #d1fae5; color: #065f46; border-left: 4px solid #065f46; }
+.event-orange { background-color: #ffedd5; color: #9a3412; border-left: 4px solid #9a3412; }
+
+/* --- NEW: SPANNING TIMELINE BARS --- */
+.calendar-bar {
+    z-index: 2;
+    align-self: end; /* Fixes the bar directly to the bottom layer of its assigned week row */
+    margin-bottom: 10px;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Subtle flag modification on the final due date target element */
+.calendar-bar.is-due {
+    border-right: 4px solid currentColor; 
+}
+
+/* Theme color specifications matching your board layout components */
+.event-purple { 
+    background-color: #e0e7ff; 
+    color: #4338ca; 
+    border-left: 4px solid #4338ca; 
+}
+.event-green { 
+    background-color: #d1fae5; 
+    color: #065f46; 
+    border-left: 4px solid #065f46; 
+}
+.event-orange { 
+    background-color: #ffedd5; 
+    color: #9a3412; 
+    border-left: 4px solid #9a3412; 
+}
+
+/* Modern Border Collapse Simulation for Grid */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: var(--border-color);
+    gap: 1px; /* Creates clean single lines between cells without doubling borders */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden; /* Clips grid items neatly into rounded corners */
+}
+
+.calendar-day-label {
+    background-color: #f8fafc;
+    padding: 12px 8px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Base Grid Cell Item */
+.calendar-cell {
+    min-height: 100px;
+    background-color: var(--card-bg);
+    padding: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    cursor: pointer;
+}
+
+/* Visual Interactive Hover Effect (No JS Required) */
+.calendar-cell:hover {
+    background-color: #f1f5f9;
+    z-index: 2;
+}
+
+.day-number {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    align-self: flex-start;
+}
+
+/* Stylized Day Overrides */
+.calendar-cell.day-inactive {
+    background-color: #fafafa;
+}
+.calendar-cell.day-inactive .day-number {
+    color: #cbd5e1; /* Faded color for dates out of current month scope */
+}
+
+/* Highlighting Today visually */
+.calendar-cell.day-today {
+    background-color: #f5f3ff; /* Soft tint matching your primary accent color */
+}
+.calendar-cell.day-today .day-number {
+    color: var(--accent-purple);
+    background: #e0e7ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Cleaner, pill-shaped calendar labels */
+.calendar-event {
+    font-size: 11px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-top: auto; /* Pushes assignment blocks neatly to bottom of the day box */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.event-purple { background-color: #e0e7ff; color: #4338ca; border-left: 3px solid #4338ca; }
+.event-green { background-color: #d1fae5; color: #065f46; border-left: 3px solid #065f46; }
+.event-orange { background-color: #ffedd5; color: #9a3412; border-left: 3px solid #9a3412; }
+
+/* --- LEADERBOARD COMPONENT --- */
+.leaderboard-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 24px;
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    width: 100%;
+    max-width: 450px;
+}
+
+.leaderboard-title {
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--primary-navy);
+}
+
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.leaderboard-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.student-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.student-name {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.student-score {
+    font-weight: 700;
+    color: var(--accent-purple);
+}
+
+.progress-track {
+    background: #f1f5f9;
+    border-radius: 8px;
+    height: 12px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 8px;
+    transition: width 0.4s ease-in-out;
+}
+
+.progress-bar.rank-1 {
+    background: var(--accent-purple);
+    width: 95%; /* Adjust widths to fit nicely inside scale */
+}
+
+.progress-bar.rank-2 {
+    background: #818cf8;
+    width: 78%;
+}
+
+.progress-bar.rank-3 {
+    background: #a5b4fc;
+    width: 63%;
+}
+/* --- ATTENTION / MISSING HOMEWORK COMPONENT --- */
+.attention-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 24px;
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    width: 100%;
+    max-width: 450px;
+    flex: 1; /* Allows it to split the remaining space equally with the leaderboard */
+}
+
+.attention-title {
+    margin-top: 0;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--primary-navy);
+}
+
+.attention-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.attention-item {
+    background: #fff5f5; /* Light soft red alert background */
+    border: 1px solid #fed7d7;
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.attention-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.student-name-warn {
+    font-weight: 600;
+    color: #9b2c2c; /* Darker red text for high contrast readability */
+    font-size: 14px;
+}
+
+.missing-badge {
+    background-color: #feb2b2;
+    color: #742a2a;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+
+.last-assignment {
+    font-size: 12px;
+    color: #c53030;
+    opacity: 0.8;
+}
+.class-dropdown {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dark, #1e293b);
+    background-color: #f1f5f9;
+    border: 1px solid var(--border-color, #e2e8f0);
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+}
+
+.class-dropdown:focus {
+    border-color: var(--accent-purple, #6366f1);
+}
+
+/* Ensures the header layout aligns items horizontally */
+.class-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
